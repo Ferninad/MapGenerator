@@ -130,11 +130,34 @@ void Run()
             {
                 switch (event.key.keysym.sym)
                 {
-                case SDLK_ESCAPE:
-                    gameLoop = false;
-                    break;
-                default:
-                    break;
+                    case SDLK_q:
+                        featureSize++;
+                        break;
+                    case SDLK_e:
+                        featureSize--;
+                        break;
+                    case SDLK_w:
+                        ypos-=5;
+                        break;
+                    case SDLK_a:
+                        xpos-=5;
+                        break;
+                    case SDLK_s:
+                        ypos+=5;
+                        break;
+                    case SDLK_d:
+                        xpos+=5;
+                        break;
+                    case SDLK_SPACE:
+                        rand1 = rand() * (RAND_MAX + 1) + rand();
+                        rand2 = rand() * (RAND_MAX + 1) + rand();
+                        noise1 = new OpenSimplexNoise{rand1};
+                        noise2 = new OpenSimplexNoise{rand2};
+                    case SDLK_ESCAPE:
+                        gameLoop = false;
+                        break;
+                    default:
+                        break;
                 }
             }
 
@@ -142,31 +165,8 @@ void Run()
             {
                 switch (event.key.keysym.sym)
                 {
-                case SDLK_q:
-                    featureSize++;
-                    break;
-                case SDLK_e:
-                    featureSize--;
-                    break;
-                case SDLK_w:
-                    ypos-=5;
-                    break;
-                case SDLK_a:
-                    xpos-=5;
-                    break;
-                case SDLK_s:
-                    ypos+=5;
-                    break;
-                case SDLK_d:
-                    xpos+=5;
-                    break;
-                case SDLK_SPACE:
-                    rand1 = rand() * (RAND_MAX + 1) + rand();
-                    rand2 = rand() * (RAND_MAX + 1) + rand();
-                    noise1 = new OpenSimplexNoise{rand1};
-                    noise2 = new OpenSimplexNoise{rand2};
-                default:
-                    break;
+                    default:
+                        break;
                 }
             }
         }
